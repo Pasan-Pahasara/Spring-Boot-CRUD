@@ -20,4 +20,9 @@ public class userController {
     public String updateUser() {
         return "User Updated..!";
     }
+
+    @DeleteMapping ("/deleteUser")
+    public String deleteUser() {
+        return "User Deleted..!";
+    }
 }

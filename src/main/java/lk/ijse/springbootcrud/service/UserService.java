@@ -38,4 +38,13 @@ public class UserService {
         repo.delete(modelMapper.map(userDTO, User.class));
         return true;
     }
+
+    /**
+     * user id > user details
+     * SELECT * FROM User WHERE id= 2
+     * */
+    public UserDTO getUserByUserID(String userID){
+        User user=repo.getUserByUserID(userID);
+        return modelMapper.map(user,UserDTO.class);
+    }
 }

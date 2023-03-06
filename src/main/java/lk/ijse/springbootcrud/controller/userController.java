@@ -29,13 +29,18 @@ public class userController {
         return service.updateUser(userDTO);
     }
 
-    @DeleteMapping ("/deleteUser")
+    @DeleteMapping("/deleteUser")
     public boolean deleteUser(@RequestBody UserDTO userDTO) {
         return service.deleteUser(userDTO);
     }
 
     @GetMapping("/getUserByUserId/{userID}")
-    public UserDTO getUserByUserID(@PathVariable String userID){
+    public UserDTO getUserByUserID(@PathVariable String userID) {
         return service.getUserByUserID(userID);
+    }
+
+    @GetMapping("/getUserByUserIDAndAddress/{userID}/{address}")
+    public UserDTO getUserByUserIDAndAddress(@PathVariable String userID, @PathVariable String address) {
+        return service.getUserByUserIDAndAddress(userID,address);
     }
 }

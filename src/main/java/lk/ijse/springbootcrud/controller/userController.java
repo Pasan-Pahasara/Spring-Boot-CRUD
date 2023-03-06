@@ -1,19 +1,25 @@
 package lk.ijse.springbootcrud.controller;
 
+import lk.ijse.springbootcrud.dto.UserDTO;
+import lk.ijse.springbootcrud.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "api/v1/user")
 @CrossOrigin
 public class userController {
+    @Autowired
+    private UserService service;
+
     @GetMapping("/getUser")
     public String getUser() {
         return "ASUS VivoBook";
     }
 
     @PostMapping("/saveUser")
-    public String saveUser() {
-        return "User Saved..!";
+    public UserDTO saveUser(@RequestBody UserDTO userDTO) {
+        return service.saveUser(userDTO);
     }
 
     @PutMapping("/updateUser")
